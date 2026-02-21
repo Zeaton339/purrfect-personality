@@ -13,7 +13,7 @@ const ResultPage = () => {
       E: Number(searchParams.get("E")) || 0,
       S: Number(searchParams.get("S")) || 0,
       A: Number(searchParams.get("A")) || 0,
-      C: Number(searchParams.get("C")) || 0
+      C: Number(searchParams.get("C")) || 0,
     }),
     [searchParams]
   );
@@ -31,14 +31,14 @@ const ResultPage = () => {
         angle: 60,
         spread: 55,
         origin: { x: 0 },
-        colors
+        colors,
       });
       confetti({
         particleCount: 3,
         angle: 120,
         spread: 55,
         origin: { x: 1 },
-        colors
+        colors,
       });
       if (Date.now() < end) requestAnimationFrame(frame);
     };
@@ -63,14 +63,14 @@ const ResultPage = () => {
         className="w-full text-center"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}>
-
+        transition={{ duration: 0.6 }}
+      >
         <motion.p
           className="text-sm text-muted-foreground font-semibold mb-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}>
-
+          transition={{ delay: 0.3 }}
+        >
           你的猫系人格是...
         </motion.p>
 
@@ -79,8 +79,8 @@ const ResultPage = () => {
           className="text-7xl sm:text-8xl mb-4"
           initial={{ scale: 0, rotate: -20 }}
           animate={{ scale: 1, rotate: 0 }}
-          transition={{ type: "spring", stiffness: 200, delay: 0.2 }}>
-
+          transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
+        >
           {result.emoji}
         </motion.div>
 
@@ -89,8 +89,8 @@ const ResultPage = () => {
           className="text-3xl sm:text-4xl font-black text-foreground mb-1"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}>
-
+          transition={{ delay: 0.4 }}
+        >
           {result.name}
         </motion.h1>
 
@@ -98,8 +98,8 @@ const ResultPage = () => {
           className="text-muted-foreground font-semibold text-sm mb-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}>
-
+          transition={{ delay: 0.5 }}
+        >
           {result.subtitle}
         </motion.p>
 
@@ -108,22 +108,22 @@ const ResultPage = () => {
           className="bg-card border-2 border-border rounded-3xl p-6 text-left shadow-card mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}>
-
+          transition={{ delay: 0.6 }}
+        >
           <p className="text-foreground text-sm sm:text-base leading-relaxed mb-5">
             {result.description}
           </p>
 
           {/* Traits */}
           <div className="flex flex-wrap gap-2 mb-5">
-            {result.traits.map((trait) =>
-            <span
-              key={trait}
-              className="bg-muted text-muted-foreground text-xs font-bold px-3 py-1.5 rounded-full">
-
+            {result.traits.map((trait) => (
+              <span
+                key={trait}
+                className="bg-muted text-muted-foreground text-xs font-bold px-3 py-1.5 rounded-full"
+              >
                 {trait}
               </span>
-            )}
+            ))}
           </div>
 
           {/* Stats */}
@@ -140,8 +140,8 @@ const ResultPage = () => {
           className="flex gap-3 mb-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}>
-
+          transition={{ delay: 0.8 }}
+        >
           <div className="flex-1 bg-card border border-border rounded-2xl p-4 text-center">
             <p className="text-xs text-muted-foreground mb-1">最佳拍档</p>
             <p className="font-bold text-foreground text-sm">
@@ -161,32 +161,32 @@ const ResultPage = () => {
           className="space-y-3"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1 }}>
-
-          
-
-
-
-
-
+          transition={{ delay: 1 }}
+        >
+          <button
+            onClick={handleShare}
+            className="w-full bg-gradient-kawaii text-primary-foreground font-bold text-base py-4 px-8 rounded-2xl shadow-kawaii active:scale-95 transition-transform"
+          >
+            分享给朋友 ✨
+          </button>
           <button
             onClick={handleRetry}
-            className="w-full bg-card text-foreground font-bold text-base py-4 px-8 rounded-2xl border-2 border-border active:scale-95 transition-transform">
-
+            className="w-full bg-card text-foreground font-bold text-base py-4 px-8 rounded-2xl border-2 border-border active:scale-95 transition-transform"
+          >
             再测一次 🔄
           </button>
         </motion.div>
       </motion.div>
-    </div>);
-
+    </div>
+  );
 };
 
 function normalizeScore(score: number): number {
   // Map score range roughly -15 to 15 → 0 to 100
-  return Math.max(5, Math.min(95, (score + 15) / 30 * 100));
+  return Math.max(5, Math.min(95, ((score + 15) / 30) * 100));
 }
 
-function StatBar({ label, value, color }: {label: string;value: number;color: string;}) {
+function StatBar({ label, value, color }: { label: string; value: number; color: string }) {
   return (
     <div>
       <div className="flex justify-between text-xs mb-1">
@@ -198,11 +198,11 @@ function StatBar({ label, value, color }: {label: string;value: number;color: st
           className={`h-full rounded-full ${color}`}
           initial={{ width: 0 }}
           animate={{ width: `${value}%` }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }} />
-
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
+        />
       </div>
-    </div>);
-
+    </div>
+  );
 }
 
 export default ResultPage;
