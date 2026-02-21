@@ -112,15 +112,15 @@ const HomePage = () => {
 
           <span>⏱ 3分钟</span>
           <span>🎯 8种结果</span>
-          <span>🆓 完全免费</span>
+          <span>🔒 安全隐私
+          </span>
         </motion.div>
 
         {/* Cat result preview pills */}
-        <motion.div
-          className="mt-6 flex flex-wrap justify-center gap-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}>
+        <motion.div className="mt-6 flex flex-wrap justify-center gap-2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}>
 
           {["🧡 活力橘猫", "🤍 温柔布偶", "🩶 高冷英短", "💙 社交暹罗"].map(
             (label) => {}
