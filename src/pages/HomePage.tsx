@@ -123,11 +123,11 @@ const HomePage = () => {
           transition={{ delay: 1 }}>
 
           {["🧡 活力橘猫", "🤍 温柔布偶", "🩶 高冷英短", "💙 社交暹罗"].map(
-            (label) => {}
-
-
-
-
+            (label) => (
+              <span key={label} className="text-xs bg-card border border-border rounded-full px-3 py-1.5 text-muted-foreground font-semibold">
+                {label}
+              </span>
+            )
 
 
 
