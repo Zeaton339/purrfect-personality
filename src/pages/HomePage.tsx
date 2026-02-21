@@ -112,7 +112,7 @@ const HomePage = () => {
 
           <span>⏱ 3分钟</span>
           <span>🎯 8种结果</span>
-          <span>🆓 完全免费</span>
+          <span>🔒 安全隐私</span>
         </motion.div>
 
         {/* Cat result preview pills */}
